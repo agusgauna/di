@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -19,7 +21,7 @@ public class ProductController {
     private ProductService service;
 
     @PostMapping({"","/"})
-    public ResponseEntity addNewProduct(@RequestBody Product product) {
+    public ResponseEntity addNewProduct(@RequestBody @Valid Product product) {
         HttpStatus status = HttpStatus.OK;
 
         try {
